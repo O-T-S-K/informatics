@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول | كلية الهندسة المعلوماتية</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <h2>تسجيل الدخول</h2>
+
+    <!-- مربع خطأ (تُظهره الباك-إند لاحقاً) -->
+    <div class="error-box" style="display:none;">
+        البريد أو كلمة المرور غير صحيحة
+    </div>
+
+    <input type="text" placeholder="البريد الجامعي">
+    <input type="password" placeholder="كلمة المرور">
+
+    <select>
+        <option selected disabled>اختر نوع الحساب</option>
+        <option>طالب</option>
+        <option>دكتور</option>
+        <option>معيد</option>
+    </select>
+
+    <button onclick="window.location.href='dashboard.html'">دخول</button>
+
+    <div class="login-links">
+        <a href="forgot_password.html">نسيت كلمة المرور؟</a>
+        <a href="register.html">إنشاء حساب جديد</a>
+    </div>
+
+</div>
+
+</body>
+</html>
