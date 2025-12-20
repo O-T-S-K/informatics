@@ -1,228 +1,96 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
+
+:root {
+    --app-primary: #0a2a56;
+    --app-secondary: #163a6a;
+    --app-accent: #0d51af;
+    --app-link: #1f4a80;
+    --bs-link-color: var(--app-primary);
+    --bs-link-hover-color: #062b5f;
+    --app-gradient-start: rgb(40, 40, 253);
+    --app-gradient-mid: lightskyblue;
+}
+
 body {
-    font-family: sans-serif;
-    background: linear-gradient(to left, rgb(40, 40, 253), lightskyblue, rgb(40, 40, 253));
-    margin: 0;
-    padding-top: 90px;
-    direction: rtl;
-}
-
-/* صفحة تسجيل الدخول */
-.login-container {
-    width: 350px;
-    margin: 120px auto;
-    background: rgb(147 168 213);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    text-align: center;
-}
-
-.login-container h2 {
-    margin-bottom: 20px;
-}
-
-.login-container input{
-    width: 100%;
-    margin: 10px -10px;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #bbb;
-}
-
-.login-container select {
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #bbb;
-}
-
-.login-container button {
-    width: 100%;
-    padding: 12px;
-    background: #0a2a56;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.layout {
-    display: flex;
-}
-
-/* القائمة الجانبية */
-.sidebar {
-    width: 230px;
-    background: #163a6a;
+    font-family: "Tahoma", sans-serif;
+    background: linear-gradient(
+        to left,
+        var(--app-gradient-start),
+        var(--app-gradient-mid),
+        var(--app-gradient-start)
+    );
     min-height: 100vh;
-    padding: 20px;
 }
 
-.sidebar a {
-    display: block;
-    color: white;
-    padding: 12px 10px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    background: #1f4a80;
-    border-radius: 6px;
+.navbar {
+    background-color: var(--app-primary) !important;
 }
 
-.sidebar a:hover {
-    background: #062b5f;
+.btn-primary {
+    background-color: var(--app-primary);
+    border-color: var(--app-primary);
 }
 
-/* Active state للصفحة الحالية */
-.sidebar a.active {
-    background-color: #0d51af; /* نفس لون hover */
-    font-weight: bold;          /* اختياري لتوضيح أنه الصفحة الحالية */
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #062b5f;
+    border-color: #062b5f;
 }
 
-/* المحتوى */
-.content {
-    padding: 30px;
-    width: 100%;
+.btn-outline-primary {
+    color: var(--app-primary);
+    border-color: var(--app-primary);
 }
 
-/* بطاقات */
-.card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--app-primary);
+    color: #fff;
 }
 
-/* جدول المحاضرات */
-.schedule {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
 }
 
-.lecture {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: #c9302c;
+    border-color: #c9302c;
 }
 
-.canceled {
-    background: #ffe5e5;
-    border-left: 5px solid #ff4a4a;
+.auth-card {
+    background-color: rgb(147, 168, 213);
 }
 
-.login-links {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
+.app-sidebar {
+    background-color: var(--app-secondary);
+    min-height: calc(100vh - 4rem);
 }
 
-.login-links a {
-    color: #0a2a56;
-    font-size: 14px;
-    text-decoration: none;
+.app-sidebar .nav-link {
+    color: #fff;
+    background-color: var(--app-link);
+    border-radius: 0.5rem;
 }
 
-.login-links a:hover {
-    text-decoration: underline;
+.app-sidebar .nav-link:hover {
+    background-color: #062b5f;
 }
 
-.error-box {
-    background: #ffdddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-left: 4px solid #ff4a4a;
-    text-align: right;
+.app-sidebar .nav-link.active {
+    background-color: var(--app-accent);
+    font-weight: 600;
 }
 
-.alert {
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.warning {
-    background: #fff7e1;
+.alert-warning {
+    background-color: #fff7e1;
     border-right: 10px solid #f1c232;
+    color: #6c4a00;
 }
 
-.info {
-    background: #e7f3ff;
+.alert-info {
+    background-color: #e7f3ff;
     border-right: 10px solid #03c4aa;
-}
-
-/* Header */
-.header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    background: #0a2a56;
-    color: white;
-    padding: 10px 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-
-/* Right section */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-right: -10px;
-}
-
-.header-logo {
-    width: 70px;
-    height: auto;
-}
-
-.header-title {
-    font-size: 20px;
-    margin: 0;
-}
-
-/* Left section */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-left: 30px;
-}
-
-/* user info */
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.user-name {
-    font-size: 14px;
-}
-
-.user-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-}
-
-/* Logout button */
-.logout-btn {
-    color: white;
-    text-decoration: none;
-    background: #d9534f;
-    padding: 8px 12px;
-    border-radius: 5px;
-}
-.logout-btn:hover {
-    background: #c9302c;
+    color: #0a2a56;
 }

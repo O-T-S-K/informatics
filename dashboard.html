@@ -1,70 +1,80 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>الرئيسية</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <header class="header">
-        <!-- Right side (logo + title) -->
-        <div class="header-right">
-            <a href="dashboard.html">
-                <img src="img/logo.png" alt="Logo" class="header-logo">
+<nav class="navbar navbar-dark bg-primary fixed-top shadow">
+    <div class="container-fluid justify-content-between">
+        <div class="d-flex align-items-center gap-3">
+            <a href="dashboard.html" class="navbar-brand p-0">
+                <img src="img/logo.png" alt="Logo" class="img-fluid" style="max-height:56px;">
             </a>
-            <h1 class="header-title">نظام إدارة شؤون الطلاب - كلية الهندسة المعلوماتية</h1>
-        </div>
-    
-        <!-- Left side (user info + logout) -->
-        <div class="header-left">
-            <div class="user-info">
-                <span class="user-name">اسم المستخدم</span>
-                <img src="img/dprofile.png" alt="User" class="user-image">
+            <div class="text-white small fw-semibold">
+                نظام إدارة شؤون الطلاب - كلية الهندسة المعلوماتية
             </div>
-    
-            <a href="index.html" class="logout-btn">تسجيل خروج</a>
         </div>
-        
-    </header>    
-
-<div class="layout">
-
-    <aside class="sidebar">
-        <a href="dashboard.html" class="active">الرئيسية</a>
-        <a href="schedule.html">جدول المحاضرات</a>
-        <a href="register_lab.html">التسجيل العملي</a>
-        <a href="resources.html">مصادر الدكاترة</a>
-        <a href="calendar.html">التقويم</a>
-        <a href="projects.html">مشاريع التخرج</a>
-        <a href="rooms.html">القاعات الفارغة</a>
-    </aside>
-
-    <main class="content">
-
-        <h2>أهلاً بك 👋</h2>
-
-        <div class="card">
-            <h3>أهم التنبيهات</h3>
-            <p>لا يوجد تنبيهات جديدة.</p>
+        <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center text-white gap-2">
+                <div class="text-end">
+                    <div class="fw-semibold">اسم المستخدم</div>
+                    <small class="opacity-75">طالب</small>
+                </div>
+                <img src="img/dprofile.png" alt="User" class="rounded-circle border border-2 border-light object-fit-cover" width="48" height="48">
+            </div>
+            <a href="index.html" class="btn btn-danger btn-sm">تسجيل خروج</a>
         </div>
-
-        <div class="card">
-            <h3>أقرب المحاضرات اليوم</h3>
-            <p>لا توجد محاضرات قريبة.</p>
-        </div>
-
-        <div class="alert warning">
-            ⚠️ محاضرة الخوارزميات ستتأخر نصف ساعة.
-        </div>
-        
-        <div class="alert info">
-            ℹ️ تم إضافة واجب جديد لمادة الذكاء الاصطناعي.
-        </div>        
-
-    </main>
+    </div>
+</nav>
+<div class="container-fluid pt-5 mt-5">
+    <div class="row g-0 min-vh-100">
+        <nav class="col-12 col-md-3 col-lg-2 app-sidebar p-3">
+            <div class="nav flex-column nav-pills gap-2 text-nowrap">
+                <a href="dashboard.html" class="nav-link active">الرئيسية</a>
+                <a href="schedule.html" class="nav-link">جدول المحاضرات</a>
+                <a href="register_lab.html" class="nav-link">التسجيل العملي</a>
+                <a href="resources.html" class="nav-link">مصادر الدكاترة</a>
+                <a href="calendar.html" class="nav-link">التقويم</a>
+                <a href="projects.html" class="nav-link">مشاريع التخرج</a>
+                <a href="rooms.html" class="nav-link">القاعات الفارغة</a>
+            </div>
+        </nav>
+        <main class="col-12 col-md-9 col-lg-10 p-4">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                <div>
+                    <h2 class="h4 mb-1">أهلاً بك 👋</h2>
+                    <p class="text-muted mb-0">اطلع على المستجدات الأخيرة الخاصة بك.</p>
+                </div>
+            </div>
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <h3 class="h5">أهم التنبيهات</h3>
+                            <p class="text-muted mb-0">لا يوجد تنبيهات جديدة.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body">
+                            <h3 class="h5">أقرب المحاضرات اليوم</h3>
+                            <p class="text-muted mb-0">لا توجد محاضرات قريبة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-warning" role="alert">
+                ⚠️ محاضرة الخوارزميات ستتأخر نصف ساعة.
+            </div>
+            <div class="alert alert-info" role="alert">
+                ℹ️ تم إضافة واجب جديد لمادة الذكاء الاصطناعي.
+            </div>
+        </main>
+    </div>
 </div>
-
 </body>
 </html>

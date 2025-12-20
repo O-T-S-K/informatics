@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>تسجيل الدخول | كلية الهندسة المعلوماتية</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-<div class="login-container">
-
-    <h2>تسجيل الدخول</h2>
-
-    <!-- مربع خطأ (تُظهره الباك-إند لاحقاً) -->
-    <div class="error-box" style="display:none;">
-        البريد أو كلمة المرور غير صحيحة
+<div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+            <div class="card shadow-lg border-0 auth-card">
+                <div class="card-body p-4">
+                    <h2 class="h4 text-center mb-4">تسجيل الدخول</h2>
+                    <div class="alert alert-danger d-none" role="alert">
+                        البريد أو كلمة المرور غير صحيحة
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">البريد الجامعي</label>
+                        <input type="text" class="form-control" placeholder="example@univ.edu">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">كلمة المرور</label>
+                        <input type="password" class="form-control" placeholder="••••••••">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">نوع الحساب</label>
+                        <select class="form-select">
+                            <option selected disabled>اختر نوع الحساب</option>
+                            <option>طالب</option>
+                            <option>دكتور</option>
+                            <option>معيد</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100" onclick="window.location.href='dashboard.html'">دخول</button>
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="forgot_password.html" class="link-primary text-decoration-none">نسيت كلمة المرور؟</a>
+                        <a href="register.html" class="link-secondary text-decoration-none">إنشاء حساب جديد</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <input type="text" placeholder="البريد الجامعي">
-    <input type="password" placeholder="كلمة المرور">
-
-    <select>
-        <option selected disabled>اختر نوع الحساب</option>
-        <option>طالب</option>
-        <option>دكتور</option>
-        <option>معيد</option>
-    </select>
-
-    <button onclick="window.location.href='dashboard.html'">دخول</button>
-
-    <div class="login-links">
-        <a href="forgot_password.html">نسيت كلمة المرور؟</a>
-        <a href="register.html">إنشاء حساب جديد</a>
-    </div>
-
 </div>
-
 </body>
 </html>
