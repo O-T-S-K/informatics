@@ -20,11 +20,21 @@ body {
         var(--app-gradient-start)
     );
     min-height: 100vh;
+    padding-top: 1rem;
 }
 
 .navbar {
     background-color: var(--app-primary) !important;
+    
 }
+
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .btn {
+    font-size: 0.7rem; /* tweak value to taste */
+}
+
+
 
 .btn-primary {
     background-color: var(--app-primary);

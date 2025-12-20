@@ -7,14 +7,30 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<nav class="navbar navbar-dark bg-primary fixed-top shadow">
-    <div class="container-fluid justify-content-between">
+<nav class="navbar navbar-dark bg-primary fixed-top shadow navbar-expand-md">
+    <div class="container-fluid">
         <div class="d-flex align-items-center gap-3">
             <a href="dashboard.html" class="navbar-brand p-0">
                 <img src="img/logo.png" alt="Logo" class="img-fluid" style="max-height:56px;">
             </a>
             <div class="text-white small fw-semibold">
                 نظام إدارة شؤون الطلاب - كلية الهندسة المعلوماتية
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                aria-label="تبديل القائمة">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center mt-3 mt-md-0" id="mainNav">
+            <div class="navbar-nav gap-2 text-center">
+                <a href="dashboard.html" class="nav-link active">الرئيسية</a>
+                <a href="schedule.html" class="nav-link">جدول المحاضرات</a>
+                <a href="register_lab.html" class="nav-link">التسجيل العملي</a>
+                <a href="resources.html" class="nav-link">مصادر الدكاترة</a>
+                <a href="calendar.html" class="nav-link">التقويم</a>
+                <a href="projects.html" class="nav-link">مشاريع التخرج</a>
+                <a href="rooms.html" class="nav-link">القاعات الفارغة</a>
             </div>
         </div>
         <div class="d-flex align-items-center gap-3">
@@ -31,18 +47,7 @@
 </nav>
 <div class="container-fluid pt-5 mt-5">
     <div class="row g-0 min-vh-100">
-        <nav class="col-12 col-md-3 col-lg-2 app-sidebar p-3">
-            <div class="nav flex-column nav-pills gap-2 text-nowrap">
-                <a href="dashboard.html" class="nav-link active">الرئيسية</a>
-                <a href="schedule.html" class="nav-link">جدول المحاضرات</a>
-                <a href="register_lab.html" class="nav-link">التسجيل العملي</a>
-                <a href="resources.html" class="nav-link">مصادر الدكاترة</a>
-                <a href="calendar.html" class="nav-link">التقويم</a>
-                <a href="projects.html" class="nav-link">مشاريع التخرج</a>
-                <a href="rooms.html" class="nav-link">القاعات الفارغة</a>
-            </div>
-        </nav>
-        <main class="col-12 col-md-9 col-lg-10 p-4">
+        <main class="col-12 p-4">
             <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
                 <div>
                     <h2 class="h4 mb-1">أهلاً بك 👋</h2>
@@ -76,5 +81,6 @@
         </main>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
