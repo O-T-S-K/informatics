@@ -9,35 +9,43 @@
 <body>
 
     <header class="header">
-        <!-- Right side (logo + title) -->
         <div class="header-right">
-            <a href="dashboard.html">
-                <img src="img/logo.png" alt="Logo" class="header-logo">
-            </a>
-            <h1 class="header-title">نظام إدارة شؤون الطلاب - كلية الهندسة المعلوماتية</h1>
+            <img src="img/logo.png" class="header-logo" onclick="window.location='dashboard.html'">
+            <h1 class="header-title">كلية الهندسة المعلوماتية - جامعة حلب</h1>
         </div>
-    
-        <!-- Left side (user info + logout) -->
+
         <div class="header-left">
-            <div class="user-info">
-                <span class="user-name">اسم المستخدم</span>
-                <img src="img/dprofile.png" alt="User" class="user-image">
+            <!-- زر تغيير الثيم -->
+            <div id="theme-toggle" class="theme-btn">
+                <div class="circle"></div>
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
             </div>
-    
-            <a href="index.html" class="logout-btn">تسجيل خروج</a>
+            <!-- معلومات المستخدم + السهم -->
+            <div class="user-info">
+                <span class="user-arrow" id="user-menu-btn">▼</span>
+            </div>
+
+            <img src="img/dprofile.png" class="user-image">
+            <span class="user-name">اسم المستخدم</span>
+
+            <!-- القائمة المنسدلة -->
+            <div class="user-menu" id="user-menu">
+                <a href="profile.html">تعديل الملف الشخصي</a>
+                <a href="index.html">تسجيل الخروج</a>
+            </div>
         </div>
-        
-    </header>     
+    </header>
 
 <div class="layout">
 
     <aside class="sidebar">
         <a href="dashboard.html">الرئيسية</a>
         <a href="schedule.html" class="active">جدول المحاضرات</a>
-        <a href="register_lab.html">التسجيل العملي</a>
+        <a href="register_lab.html">التسجيل على المواد الاختيارية</a>
         <a href="resources.html">مصادر الدكاترة</a>
         <a href="calendar.html">التقويم</a>
-        <a href="projects.html">مشاريع التخرج</a>
+        <a href="projects.html">المشاريع</a>
         <a href="rooms.html">القاعات الفارغة</a>
     </aside>
 
@@ -63,6 +71,7 @@
 
     </main>
 </div>
-
+<script src="js/theme.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

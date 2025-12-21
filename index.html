@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <title>تسجيل الدخول | كلية الهندسة المعلوماتية</title>
@@ -7,34 +8,43 @@
 </head>
 
 <body>
+    <header class="header">
+        <div class="header-right">
+            <img src="img/logo.png" class="header-logo" style="cursor: auto;">
+            <h1 class="header-title">كلية الهندسة المعلوماتية - جامعة حلب</h1>
+        </div>
+        <div class="header-left">
+            <!-- زر تغيير الثيم -->
+            <div id="theme-toggle" class="theme-btn">
+                <div class="circle"></div>
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </div>
+        </div>
+        </div>
+    </header>
 
-<div class="login-container">
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <input type="email" placeholder="البريد الجامعي" class="login-input">
+        <input type="password" placeholder="كلمة المرور" class="login-input">
+        <div class="login-select">
+            <div class="login-select-trigger">اختر نوع الحساب</div>
+            <div class="login-options">
+                <span class="login-option" data-value="طالب">طالب</span>
+                <span class="login-option" data-value="دكتور">دكتور</span>
+                <span class="login-option" data-value="معيد">معيد</span>
+            </div>
+        </div>
 
-    <h2>تسجيل الدخول</h2>
-
-    <!-- مربع خطأ (تُظهره الباك-إند لاحقاً) -->
-    <div class="error-box" style="display:none;">
-        البريد أو كلمة المرور غير صحيحة
+        <button onclick="window.location.href='dashboard.html'">دخول</button>
+        <div class="login-links">
+            <a href="forgot_password.html">نسيت كلمة المرور؟</a>
+            <a href="register.html">إنشاء حساب جديد</a>
+        </div>
     </div>
 
-    <input type="text" placeholder="البريد الجامعي">
-    <input type="password" placeholder="كلمة المرور">
-
-    <select>
-        <option selected disabled>اختر نوع الحساب</option>
-        <option>طالب</option>
-        <option>دكتور</option>
-        <option>معيد</option>
-    </select>
-
-    <button onclick="window.location.href='dashboard.html'">دخول</button>
-
-    <div class="login-links">
-        <a href="forgot_password.html">نسيت كلمة المرور؟</a>
-        <a href="register.html">إنشاء حساب جديد</a>
-    </div>
-
-</div>
-
+    <script src="js/theme.js"></script>
 </body>
+
 </html>

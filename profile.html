@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body>
+    <!-- نفس الهيدر -->
+    <header class="header">
+        <div class="header-right">
+            <img src="img/logo.png" class="header-logo" onclick="window.location='dashboard.html'">
+            <h1 class="header-title">كلية الهندسة المعلوماتية - جامعة حلب</h1>
+        </div>
+
+        <div class="header-left">
+            <div id="theme-toggle" class="theme-btn">
+                <div class="circle"></div>
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </div>
+            <div class="user-info">
+                <span class="user-arrow" id="user-menu-btn">▼</span>
+            </div>
+            <img src="img/dprofile.png" class="user-image">
+            <span class="user-name">اسم المستخدم</span>
+
+            <div class="user-menu" id="user-menu">
+                <a href="profile.html">تعديل الملف الشخصي</a>
+                <a href="index.html">تسجيل الخروج</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="card profile-card">
+        <img class="profile-image" src="img/dprofile.png">
+    
+        <p>
+            <strong>الاسم:</strong>
+            <span id="user-name">اسم المستخدم</span>
+            <input id="nameInput" type="text" style="display:none">
+        </p>
+    
+        <p><strong>الحساب:</strong> user@example.com</p>
+    
+        <div class="actions">
+            <button id="editBtn" onclick="startEdit()">تعديل</button>
+            <div id="editActions" style="display:none">
+                <button onclick="saveEdit()">حفظ</button>
+                <button onclick="cancelEdit()">إلغاء</button>      
+            </div>
+            <button id="delete-account-btn" class="delete-btn">
+                حذف الحساب
+            </button>
+        </div>
+    </div>    
+    <div id="delete-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h3>تأكيد حذف الحساب</h3>
+            <p>
+                ⚠️ هذا الإجراء لا يمكن التراجع عنه.<br>
+                هل أنت متأكد أنك تريد حذف حسابك؟
+            </p>
+    
+            <div class="modal-actions">
+                <button id="confirm-delete" class="delete-btn">
+                    نعم، احذف الحساب
+                </button>
+                <button id="cancel-delete" class="cancel-btn">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

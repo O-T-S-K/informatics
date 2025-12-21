@@ -1,60 +1,190 @@
+/* ===============================
+   المتغيرات الأساسية للألوان
+================================= */
+:root {
+    --bg-color: rgba(5, 68, 107, 0.747);
+    --card-color: rgb(147, 168, 213);
+    --text-color: #222;
+    --text-light: #555;
+    --primary-color: #0a2a56;
+    --primary-hover: #1a5cb8;
+    --border-color: #ddd;
+    --lmode-color: #ffcc33;
+    --sidebar-bg: #163a6a;
+    --sidebar-link-bg: #1f4a80;
+    --sidebar-link-hover: #062b5f;
+    --sidebar-link-active: #0d51af;
+    --card-shadow: rgba(0, 0, 0, 0.05);
+    --error-bg: #ffdddd;
+    --error-border: #ff4a4a;
+    --logout-bg: #d9534f;
+    --logout-hover: #c9302c;
+}
+
+/* الوضع الداكن */
+body.dark {
+    --bg-color: #0c1424;
+    --card-color: #142034;
+    --text-color: #e8e8e8;
+    --text-light: #c2c2c2;
+    --primary-color: #4a8fff;
+    --primary-hover: #204a88;
+    --border-color: #2b3a55;
+    --sidebar-bg: #142034;
+    --sidebar-link-bg: #316fcc;
+    --sidebar-link-hover: #4a8fff;
+    --sidebar-link-active: #1e3a8a;
+    --card-shadow: rgba(0, 0, 0, 0.15);
+    --error-bg: #ffdddd;
+    --error-border: #ff4a4a;
+    --logout-bg: #c9302c;
+    --logout-hover: #d9534f;
+    --dmode-color: #1e3a8a;
+}
+
+/* ===============================
+         الخلفية العامة
+================================= */
 body {
-    font-family: sans-serif;
-    background: linear-gradient(to left, rgb(40, 40, 253), lightskyblue, rgb(40, 40, 253));
+    font-family: "Tahoma", sans-serif;
+    background: var(--bg-color);
     margin: 0;
     padding-top: 90px;
     direction: rtl;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
 }
 
-/* صفحة تسجيل الدخول */
+/* ===============================
+       صفحة تسجيل الدخول
+================================= */
 .login-container {
     width: 350px;
     margin: 120px auto;
-    background: rgb(147 168 213);
+    background: var(--card-color);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    box-shadow: 0 5px 20px var(--card-shadow);
     text-align: center;
+    transition: background 0.3s;
 }
 
 .login-container h2 {
     margin-bottom: 20px;
+    color: var(--text-color);
 }
 
-.login-container input{
+input,
+.login-select-trigger {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--card-color);
+    color: var(--text-color);
+    transition: background 0.3s;
+}
+
+.login-container input {
     width: 100%;
     margin: 10px -10px;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #bbb;
+}
+.login-select {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
 }
 
-.login-container select {
+.login-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    margin: 10px 0;
-    padding: 12px;
+    background: var(--card-color);
     border-radius: 6px;
-    border: 1px solid #bbb;
+    border: 1px solid var(--border-color);
+    display: none;
+    flex-direction: column;
+    z-index: 10;
+    transition: background 0.3s;
 }
 
-.login-container button {
-    width: 100%;
+.login-option {
+    padding: 10px;
+    transition: 0.2s;
+}
+
+.login-option:hover {
+    background: var(--primary-hover);
+}
+
+/* السهم يقلد شكل select الأصلي */
+.login-select-trigger::after {
+    content: "▼";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+}
+
+button {
     padding: 12px;
-    background: #0a2a56;
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 17px;
+    margin-top: 10px;
+    transition: background 0.3s;
 }
 
+.login-container button {
+    width: 100%;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+.login-links a {
+    color: var(--primary-color);
+}
+
+.login-links a:hover {
+    color: var(--primary-hover);
+}
+
+.login-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+/* ===============================
+       خطأ/رسائل
+================================= */
+.error-box {
+    background: var(--error-bg);
+    border-left: 4px solid var(--error-border);
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* ===============================
+       تخطيط الصفحات
+================================= */
 .layout {
     display: flex;
 }
 
-/* القائمة الجانبية */
+/* ===============================
+       القائمة الجانبية
+================================= */
 .sidebar {
     width: 230px;
-    background: #163a6a;
+    background: var(--sidebar-bg);
     min-height: 100vh;
     padding: 20px;
 }
@@ -65,33 +195,63 @@ body {
     padding: 12px 10px;
     margin-bottom: 10px;
     text-decoration: none;
-    background: #1f4a80;
+    background: var(--sidebar-link-bg);
     border-radius: 6px;
+    transition: background 0.3s;
 }
 
 .sidebar a:hover {
-    background: #062b5f;
+    background: var(--sidebar-link-hover);
 }
 
-/* Active state للصفحة الحالية */
 .sidebar a.active {
-    background-color: #0d51af; /* نفس لون hover */
-    font-weight: bold;          /* اختياري لتوضيح أنه الصفحة الحالية */
+    background-color: var(--sidebar-link-active);
+    font-weight: bold;
 }
 
-/* المحتوى */
+/* ===============================
+       المحتوى الرئيسي
+================================= */
 .content {
     padding: 30px;
     width: 100%;
 }
 
-/* بطاقات */
 .card {
-    background: white;
+    background: var(--card-color);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 3px 10px var(--card-shadow);
+    transition: background 0.3s;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.warning {
+    background: var(--card-color);
+    border-right: 10px solid #f1c232;
+    transition: background 0.3s;
+}
+
+.warning::first-letter {
+    font-size: 20px;
+    color:  #ffa600;
+}
+
+.info {
+    background: var(--card-color);
+    border-right: 10px solid #03c4aa;
+    transition: background 0.3s;
+}
+
+.info::first-letter {
+    font-size: 25px;
+    color:  #0387c4;
 }
 
 /* جدول المحاضرات */
@@ -102,85 +262,52 @@ body {
 }
 
 .lecture {
-    background: white;
+    background: var(--card-color);
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px var(--card-shadow);
+    transition: background 0.3s;
 }
 
 .canceled {
-    background: #ffe5e5;
-    border-left: 5px solid #ff4a4a;
+    border-right: 5px solid #fa2929;
 }
 
-.login-links {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.login-links a {
-    color: #0a2a56;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.login-links a:hover {
-    text-decoration: underline;
-}
-
-.error-box {
-    background: #ffdddd;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-left: 4px solid #ff4a4a;
-    text-align: right;
-}
-
-.alert {
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.warning {
-    background: #fff7e1;
-    border-right: 10px solid #f1c232;
-}
-
-.info {
-    background: #e7f3ff;
-    border-right: 10px solid #03c4aa;
-}
-
-/* Header */
+/* ===============================
+       Header
+================================= */
 .header {
     position: fixed;
     top: 0;
     right: 0;
     width: 100%;
-    background: #0a2a56;
+    background: var(--primary-color);
     color: white;
     padding: 10px 20px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 10px var(--card-shadow);
+    z-index: 1000;
+    transition: background 0.3s;
 }
 
-/* Right section */
-.header-right {
+.header-right,
+.header-left {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-right: -10px;
+}
+
+.header-left {
+    margin-left: 40px;
+    direction: ltr;
 }
 
 .header-logo {
     width: 70px;
     height: auto;
+    cursor: pointer;
 }
 
 .header-title {
@@ -188,23 +315,12 @@ body {
     margin: 0;
 }
 
-/* Left section */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-left: 30px;
-}
-
-/* user info */
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+/* ===============================
+       user info
+================================= */
 
 .user-name {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .user-image {
@@ -212,17 +328,252 @@ body {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid white;
+    border: 2px solid var(--border-color);
+    transition: background 0.3s;
 }
 
-/* Logout button */
-.logout-btn {
-    color: white;
-    text-decoration: none;
-    background: #d9534f;
-    padding: 8px 12px;
-    border-radius: 5px;
+/* القائمة المنسدلة للمستخدم */
+.user-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 }
-.logout-btn:hover {
-    background: #c9302c;
+
+.user-info .user-arrow {
+    font-size: 12px;
+    user-select: none;
+}
+
+.user-menu {
+    position: absolute;
+    left: 50px;
+    top: 70px;
+    margin-top: 6px;
+    background: var(--card-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    overflow: hidden;
+    z-index: 1001;
+    min-width: 160px;    
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: background 0.3s,opacity 0.3s ease, transform 0.3s ease;
+}
+
+.user-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.user-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    transition: background 300ms;
+}
+
+.user-menu a:hover {
+    background: var(--primary-hover);
+}
+
+/* زر الثيم */
+#theme-toggle,
+.theme-btn {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 22px;
+    background: var(--border-color);
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 300ms;
+}
+
+#theme-toggle::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 8px;
+    right: 4px;
+    border-radius: 50%;
+    background: var(--card-color);
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle .circle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 35px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 300ms;
+    transform: translateX(0);
+}
+
+body.dark #theme-toggle .circle {
+    transform: translateX(35px);
+}
+
+#theme-toggle .sun,
+#theme-toggle .moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    pointer-events: none;
+}
+
+#theme-toggle .sun {
+    left: 6px;
+}
+
+#theme-toggle .moon {
+    right: 6px;
+}
+
+#theme-toggle.active::before {
+    transform: translateX(-40px);
+}
+
+/* ألوان الشمس والقمر */
+#theme-toggle .sun,
+#theme-toggle .moon {
+    transition: color 300ms;
+}
+
+/* Light mode */
+body:not(.dark) #theme-toggle .sun {
+    color: var(--lmode-color);
+}
+
+body:not(.dark) #theme-toggle .moon {
+    color: var(--dmode-color);
+}
+
+/* Dark mode */
+body.dark #theme-toggle .sun {
+    color: var(--dmode-color);
+}
+
+body.dark #theme-toggle .moon {
+    color: var(--lmode-color);
+}
+
+.profile-card {
+    text-align: center;
+    position: relative;
+}
+
+.profile-image {
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image:hover {
+    opacity: 0.85;
+}
+.delete-btn {
+    background: #c0392b;
+}
+
+.delete-btn:hover {
+    background: #74221a;
+}
+/* خلفية معتمة */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* الصندوق */
+.modal-box {
+    background: var(--card-color);
+    padding: 25px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+}
+/* زر القائمة */
+.menu-toggle {
+    display: none;
+    position: relative;
+    font-size: 30px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 9999;
+}
+
+/* طبقة التعتيم */
+.overlay {
+    position: fixed;
+    top: 90px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 998;
+}
+
+/* =============================
+   الشاشات الصغيرة
+============================= */
+@media (max-width: 900px) {
+
+    /* إخفاء القائمة افتراضيًا */
+    .sidebar {
+        position: fixed;
+        top: 90px;
+        right: -260px;
+        height: calc(100vh - 90px);
+        z-index: 999;
+        transition: right 0.3s ease;
+    }
+
+    /* عند الفتح */
+    .sidebar.open {
+        right: 0;
+    }
+
+    /* إظهار زر القائمة */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* إخفاء القائمة من الـ layout */
+    .layout {
+        flex-direction: column;
+    }
+}
+
+/* التعتيم عند الفتح */
+.overlay.active {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .profile-image {
+        width: 160px;
+    }
 }
