@@ -10,6 +10,9 @@
 
     <header class="header">
         <div class="header-right">
+            <!-- زر القائمة (يظهر فقط في الشاشات الصغيرة) -->
+            <div id="menu-toggle" class="menu-toggle">☰</div>
+            
             <img src="img/logo.png" class="header-logo" onclick="window.location='dashboard.html'">
             <h1 class="header-title">كلية الهندسة المعلوماتية - جامعة حلب</h1>
         </div>
@@ -39,7 +42,10 @@
 
 <div class="layout">
 
-    <aside class="sidebar">
+        <!-- طبقة التعتيم -->
+        <div id="overlay" class="overlay"></div>
+
+        <aside id="sidebar" class="sidebar">
         <a href="dashboard.html">الرئيسية</a>
         <a href="schedule.html">جدول المحاضرات</a>
         <a href="register_lab.html">التسجيل على المواد الاختيارية</a>

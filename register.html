@@ -30,8 +30,8 @@
         <h2>إنشاء حساب جديد</h2>
 
         <div class="login-select">
-            <div class="login-select-trigger">اختر نوع الحساب</div>
-            <div class="login-options">
+            <div class="login-select-trigger" id="login-select-trigger">اختر نوع الحساب</div>
+            <div class="login-options" id="login-options">
                 <span class="login-option" data-value="طالب">طالب</span>
                 <span class="login-option" data-value="دكتور">دكتور</span>
                 <span class="login-option" data-value="معيد">معيد</span>
@@ -46,9 +46,9 @@
         <button>إنشاء الحساب</button>
 
         <div class="login-links">
-            <a href="index.html">لديك حساب؟ تسجيل الدخول</a>
+            <a href="index.html" class="transition-link">لديك حساب؟ تسجيل الدخول</a>
         </div>
-
+        <div id="page-overlay"></div>
     </div>
     <script src="js/theme.js"></script>
 </body>

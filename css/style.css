@@ -9,11 +9,10 @@
     --primary-color: #0a2a56;
     --primary-hover: #1a5cb8;
     --border-color: #ddd;
-    --lmode-color: #ffcc33;
     --sidebar-bg: #163a6a;
     --sidebar-link-bg: #1f4a80;
     --sidebar-link-hover: #062b5f;
-    --sidebar-link-active: #0d51af;
+    --sidebar-link-active: #0d3163;
     --card-shadow: rgba(0, 0, 0, 0.05);
     --error-bg: #ffdddd;
     --error-border: #ff4a4a;
@@ -32,14 +31,13 @@ body.dark {
     --border-color: #2b3a55;
     --sidebar-bg: #142034;
     --sidebar-link-bg: #316fcc;
-    --sidebar-link-hover: #4a8fff;
     --sidebar-link-active: #1e3a8a;
+    --sidebar-link-hover: #152641;
     --card-shadow: rgba(0, 0, 0, 0.15);
     --error-bg: #ffdddd;
     --error-border: #ff4a4a;
     --logout-bg: #c9302c;
     --logout-hover: #d9534f;
-    --dmode-color: #1e3a8a;
 }
 
 /* ===============================
@@ -61,6 +59,8 @@ body {
 .login-container {
     width: 350px;
     margin: 120px auto;
+    position: relative;
+    overflow: hidden;
     background: var(--card-color);
     padding: 30px;
     border-radius: 10px;
@@ -103,10 +103,24 @@ input,
     background: var(--card-color);
     border-radius: 6px;
     border: 1px solid var(--border-color);
-    display: none;
+
+    display: flex;
     flex-direction: column;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition: 
+        opacity 0.3s ease,
+        transform 0.3s ease;
     z-index: 10;
-    transition: background 0.3s;
+}
+
+.login-options.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .login-option {
@@ -161,6 +175,29 @@ button:hover {
     justify-content: space-between;
     margin-top: 10px;
 }
+
+#page-overlay {
+    position: absolute;
+    top: -100%; /* يبدأ فوق البطاقة */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    z-index: 1000;
+    pointer-events: none;
+    transition: top 0.5s ease;
+}
+
+/* يغطي البطاقة بالكامل */
+#page-overlay.cover {
+    top: 0;
+}
+
+/* يستمر في النزول ليختفي */
+#page-overlay.reveal {
+    top: 100%; /* يختفي أسفل البطاقة */
+}
+
 /* ===============================
        خطأ/رسائل
 ================================= */
@@ -200,13 +237,13 @@ button:hover {
     transition: background 0.3s;
 }
 
-.sidebar a:hover {
-    background: var(--sidebar-link-hover);
-}
-
 .sidebar a.active {
     background-color: var(--sidebar-link-active);
     font-weight: bold;
+}
+
+.sidebar a:hover {
+    background: var(--sidebar-link-hover);
 }
 
 /* ===============================
@@ -455,20 +492,20 @@ body.dark #theme-toggle .circle {
 
 /* Light mode */
 body:not(.dark) #theme-toggle .sun {
-    color: var(--lmode-color);
+    color: #ffcc33;
 }
 
 body:not(.dark) #theme-toggle .moon {
-    color: var(--dmode-color);
+    color: #1e3a8a;
 }
 
 /* Dark mode */
 body.dark #theme-toggle .sun {
-    color: var(--dmode-color);
+    color: #1e3a8a;
 }
 
 body.dark #theme-toggle .moon {
-    color: var(--lmode-color);
+    color: #ffcc33;
 }
 
 .profile-card {
@@ -517,8 +554,11 @@ body.dark #theme-toggle .moon {
 /* زر القائمة */
 .menu-toggle {
     display: none;
+    padding: 0 5px 2px;
+    border-radius: 25%;
+    border: 2px solid white;
     position: relative;
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
     user-select: none;
     z-index: 9999;
@@ -536,16 +576,21 @@ body.dark #theme-toggle .moon {
     z-index: 998;
 }
 
+/* التعتيم عند الفتح */
+.overlay.active {
+    display: block;
+}
+
 /* =============================
    الشاشات الصغيرة
 ============================= */
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
 
     /* إخفاء القائمة افتراضيًا */
     .sidebar {
         position: fixed;
         top: 90px;
-        right: -260px;
+        right: -270px;
         height: calc(100vh - 90px);
         z-index: 999;
         transition: right 0.3s ease;
@@ -564,16 +609,6 @@ body.dark #theme-toggle .moon {
     /* إخفاء القائمة من الـ layout */
     .layout {
         flex-direction: column;
-    }
-}
-
-/* التعتيم عند الفتح */
-.overlay.active {
-    display: block;
-}
-
-@media (max-width: 600px) {
-    .profile-image {
-        width: 160px;
+        margin-left: 60px;
     }
 }
