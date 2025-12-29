@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
             overlay.classList.remove("active");
         });
     }
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1080) {
+            sidebar.classList.remove("open");
+            overlay.classList.remove("active");
+        }
+    });    
 
     // ============================
     // قائمة المستخدم

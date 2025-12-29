@@ -337,7 +337,7 @@ button:hover {
 }
 
 .header-left {
-    margin-left: 40px;
+    margin-left: 120px;
     direction: ltr;
 }
 
@@ -422,7 +422,8 @@ button:hover {
 /* زر الثيم */
 #theme-toggle,
 .theme-btn {
-    position: relative;
+    position: fixed;
+    margin-left: -80px;
     width: 60px;
     height: 30px;
     border-radius: 22px;
@@ -588,7 +589,7 @@ body.dark #theme-toggle .moon {
 
     /* إخفاء القائمة افتراضيًا */
     .sidebar {
-        position: fixed;
+        position: absolute;
         top: 90px;
         right: -270px;
         height: calc(100vh - 90px);
